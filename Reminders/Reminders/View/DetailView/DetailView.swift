@@ -9,6 +9,7 @@ import UIKit
 
 protocol DetailViewProtocol {
     func didPressSaveChangeButton()
+    func didSelectPickerRow(row: String)
 }
 
 class DetailView: UIView {
@@ -102,7 +103,6 @@ class DetailView: UIView {
             self.reminderDatePicker.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             
             self.priorityPicker.topAnchor.constraint(equalTo: self.reminderDatePicker.bottomAnchor, constant: 16),
-
             self.priorityPicker.heightAnchor.constraint(equalToConstant: 128),
             self.priorityPicker.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             
@@ -139,4 +139,11 @@ extension DetailView: UIPickerViewDataSource {
      }
 }
 
-extension DetailView: UIPickerViewDelegate {}
+extension DetailView: UIPickerViewDelegate {
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        let selectedRow = dataArray[row]
+        delegate?.didSelectPickerRow(row: selectedRow)
+    }
+    
+}

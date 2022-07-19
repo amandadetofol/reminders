@@ -30,6 +30,10 @@ class NewReminderViewController: UIViewController {
 }
 
 extension NewReminderViewController: DetailViewProtocol {
+    func didSelectPickerRow(row: String) {
+        print(row)
+    }
+    
     func didPressSaveChangeButton() {
         print("should save new item in database")
     }

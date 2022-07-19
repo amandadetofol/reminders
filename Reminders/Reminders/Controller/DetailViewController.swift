@@ -28,6 +28,10 @@ class DetailViewController: UIViewController {
 }
 
 extension DetailViewController: DetailViewProtocol {
+    func didSelectPickerRow(row: String) {
+        print("selected row")
+    }
+    
     func didPressSaveChangeButton() {
         print("should update reminder in database")
     }

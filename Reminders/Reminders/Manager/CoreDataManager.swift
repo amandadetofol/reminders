@@ -64,6 +64,44 @@ class CoreDataManager {
         return reminders
     }
     
+    func removeReminderFromCoreData(reminder: Reminder) {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ReminderCoreData")
+        request.predicate = NSPredicate(format:"title = %@", reminder.title)
+        
+        do {
+            if let results = try persistentContainer.viewContext.fetch(request) as? [NSManagedObject] {
+
+                for object in results {
+                    persistentContainer.viewContext.delete(object)
+                }
+            }
+        } catch let error {
+            print(error.localizedDescription)
+        }
+        saveContext()
+    }
+    
+    func updateReminderInCoreData(reminder: Reminder, newReminder: Reminder) {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ReminderCoreData")
+        request.predicate = NSPredicate(format:"title = %@", reminder.title)
+        
+        do {
+            if let results = try persistentContainer.viewContext.fetch(request) as? [NSManagedObject] {
+
+                for object in results {
+                    object.setValue(newReminder.priority.string, forKey: "priority")
+                    object.setValue(newReminder.title, forKey: "title")
+                    object.setValue(newReminder.description, forKey: "reminderDescription")
+                    object.setValue(newReminder.date, forKey: "date")
+                }
+            }
+        } catch let error {
+            print(error.localizedDescription)
+        }
+        saveContext()
+
+    }
+    
 }
 
 extension CoreDataManager {

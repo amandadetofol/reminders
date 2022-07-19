@@ -19,6 +19,7 @@ class MainViewController: UIViewController {
     }()
     
     private var viewModel: MainViewControllerViewModel = MainViewControllerViewModel()
+    private let coreDataManager = CoreDataManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,11 +79,13 @@ extension MainViewController: UITableViewDelegate {
         
         let detailView = DetailViewController()
         detailView.configure(with: viewModel.reminders[indexPath.row])
-        self.present(detailView, animated: true)
+        self.navigationController?.pushViewController(detailView, animated: true)
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        print("should remove item and update tableviewdatasource")
+        let reminder = viewModel.reminders[indexPath.row]
+        coreDataManager.removeReminderFromCoreData(reminder: reminder)
+        tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

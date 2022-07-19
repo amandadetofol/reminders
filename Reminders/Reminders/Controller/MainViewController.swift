@@ -20,8 +20,11 @@ class MainViewController: UIViewController {
     
     private var viewModel: MainViewControllerViewModel = MainViewControllerViewModel()
     private let coreDataManager = CoreDataManager()
+    private let notificationManager = NotificationCenterManager()
 
     override func viewDidLoad() {
+        notificationManager.userNotificationCenter.delegate = self
+        notificationManager.requestNotificationAuthorization()
         super.viewDidLoad()
         self.setupView()
         self.setupConstraint()
@@ -102,3 +105,14 @@ extension MainViewController {
     }
 }
 
+extension MainViewController: UNUserNotificationCenterDelegate {
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        completionHandler()
+    }
+
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert, .badge, .sound])
+    }
+    
+}

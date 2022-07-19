@@ -13,6 +13,7 @@ class NewReminderViewController: UIViewController {
     
     private var viewToView: DetailView = DetailView()
     private let coreDataManger = CoreDataManager()
+    private let notificationManager = NotificationCenterManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,7 +60,7 @@ extension NewReminderViewController: DetailViewProtocol {
                                    priority: selectPriority(basedOn: priorityString),
                                    dateToShow: date.parseToFormattedString(),
                                    date: date)
-        
+        self.notificationManager.sendNotification(title: title, description: description, date: date)
         self.coreDataManger.addReminderInCoreData(newReminder)
         self.navigationController?.popViewController(animated: true)
     }

@@ -12,6 +12,7 @@ import UIKit
 class NewReminderViewController: UIViewController {
     
     private var viewToView: DetailView = DetailView()
+    private let coreDataManger = CoreDataManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,19 +23,43 @@ class NewReminderViewController: UIViewController {
         viewToView.configure(with: reminder)
     }
     
+    func selectPriority(basedOn string: String) -> Priority {
+        switch string.lowercased() {
+        case "high":
+            return .high
+        case "medium":
+            return .medium
+        case "low":
+            return .low
+        default:
+            return .low
+        }
+    }
+    
     private func setupViewController(){
         viewToView.delegate = self
         self.view = viewToView
     }
     
+    
 }
 
 extension NewReminderViewController: DetailViewProtocol {
-    func didSelectPickerRow(row: String) {
-        print(row)
-    }
-    
+
     func didPressSaveChangeButton() {
-        print("should save new item in database")
+        guard let title = viewToView.reminderTitle,
+              let description = viewToView.reminderDescriptionTitle,
+              let priorityString = viewToView.reminderPriority,
+              let date = viewToView.date else {
+            return
+        }
+        
+        
+        let newReminder = Reminder(title: title,
+                                   description: description,
+                                   priority: selectPriority(basedOn: priorityString),
+                                   dateToShow: date.parseToFormattedString(),
+                                   date: date)
+        coreDataManger.addReminderInCoreData(newReminder)
     }
 }

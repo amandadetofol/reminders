@@ -10,6 +10,7 @@ import UIKit
 class DetailViewController: UIViewController {
     
     private var viewToView: DetailView = DetailView()
+    private let coreDataManger = CoreDataManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,9 +29,6 @@ class DetailViewController: UIViewController {
 }
 
 extension DetailViewController: DetailViewProtocol {
-    func didSelectPickerRow(row: String) {
-        print("selected row")
-    }
     
     func didPressSaveChangeButton() {
         print("should update reminder in database")

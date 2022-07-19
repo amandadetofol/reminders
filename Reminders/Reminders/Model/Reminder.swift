@@ -11,6 +11,17 @@ enum Priority {
     case high
     case medium
     case low
+    
+    var string: String {
+        switch self {
+        case .high:
+            return "High"
+        case .medium:
+            return "Medium"
+        case .low:
+            return "Low"
+        }
+    }
 }
 
 struct Reminder {

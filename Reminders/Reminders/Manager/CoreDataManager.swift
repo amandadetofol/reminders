@@ -32,4 +32,66 @@ class CoreDataManager {
         }
     }
     
+    func addReminderInCoreData(_ reminder: Reminder) {
+        let coreDataReminder = self.parseReminderToCoreDataReminder(reminder)
+        saveContext()
+    }
+    
+    func getItemsFromDatabase() -> [Reminder]{
+        var reminders: [Reminder] = []
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "ReminderCoreData")
+        do {
+            if let results = try persistentContainer.viewContext.fetch(fetchRequest) as? [NSManagedObject] {
+                for result in results {
+                    if let title = result.value(forKey: "title") as? String,
+                       let description = result.value(forKey: "reminderDescription") as? String,
+                        let date = result.value(forKey: "date") as? Date,
+                        let priority = result.value(forKey: "priority") as? String {
+                        
+                        reminders.append(Reminder(title: title,
+                                                description: description,
+                                                priority: self.selectPriority(basedOn: priority),
+                                                dateToShow: date.parseToFormattedString(),
+                                                date: date))
+                        
+                    }
+                }
+            }
+        } catch {
+            print("Failed to fetch data request.")
+        }
+        
+        return reminders
+    }
+    
+}
+
+extension CoreDataManager {
+    
+    private func parseReminderToCoreDataReminder(_ reminder: Reminder) -> ReminderCoreData {
+        let coreDataReminder = ReminderCoreData(context: self.persistentContainer.viewContext)
+        coreDataReminder.date = reminder.date
+        coreDataReminder.title = reminder.title
+        coreDataReminder.reminderDescription = reminder.description
+        coreDataReminder.priority = reminder.priority.string
+        return coreDataReminder
+    }
+
+}
+
+extension CoreDataManager {
+    
+    func selectPriority(basedOn string: String) -> Priority {
+        switch string.lowercased() {
+        case "high":
+            return .high
+        case "medium":
+            return .medium
+        case "low":
+            return .low
+        default:
+            return .low
+        }
+    }
+    
 }

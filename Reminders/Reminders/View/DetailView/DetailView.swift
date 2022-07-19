@@ -9,7 +9,6 @@ import UIKit
 
 protocol DetailViewProtocol {
     func didPressSaveChangeButton()
-    func didSelectPickerRow(row: String)
 }
 
 class DetailView: UIView {
@@ -55,6 +54,21 @@ class DetailView: UIView {
         button.addTarget(self, action: #selector(didPressSaveChangeButton), for: .touchUpInside)
         return button
     }()
+    
+    var reminderTitle: String? {
+        return self.reminderTitleTextField.text
+    }
+    
+    var reminderDescriptionTitle: String? {
+        return self.reminderDescriptionTextField.text
+    }
+    
+    var date: Date? {
+        return self.reminderDatePicker.date
+    }
+    
+    var reminderPriority: String? = ""
+    
     
     private let dataArray = ["High", "Medium", "Low"]
     var delegate: DetailViewProtocol?
@@ -143,7 +157,7 @@ extension DetailView: UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let selectedRow = dataArray[row]
-        delegate?.didSelectPickerRow(row: selectedRow)
+        self.reminderPriority = selectedRow
     }
     
 }

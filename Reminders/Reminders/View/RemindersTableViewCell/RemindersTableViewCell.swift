@@ -61,9 +61,21 @@ class RemindersTableViewCell: UITableViewCell {
         self.reminderTitleLabel.text = reminder.title
         self.reminderDescriptionLabel.text = reminder.description
         self.reminderDateLabel.text = reminder.dateToShow
+        self.changeColorBasedOnPriority(priority: reminder.priority)
     }
     
     //MARK: Private methods
+    private func changeColorBasedOnPriority(priority: Priority){
+        switch priority {
+        case .high:
+            self.priorityImage.backgroundColor = .red
+        case .medium:
+            self.priorityImage.backgroundColor = .yellow
+        case .low:
+            self.priorityImage.backgroundColor = .green
+        }
+    }
+    
     private func setupView() {
         self.addSubview(priorityImage)
         self.addSubview(reminderTitleLabel)

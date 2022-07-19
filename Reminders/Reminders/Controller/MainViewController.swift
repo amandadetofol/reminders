@@ -26,6 +26,11 @@ class MainViewController: UIViewController {
         self.setupConstraint()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.remindersTableView.reloadData()
+    }
+    
     private func setupRightBarButtonItem(){
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add",
                                                             style: .done,

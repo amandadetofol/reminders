@@ -54,12 +54,13 @@ extension NewReminderViewController: DetailViewProtocol {
             return
         }
         
-        
         let newReminder = Reminder(title: title,
                                    description: description,
                                    priority: selectPriority(basedOn: priorityString),
                                    dateToShow: date.parseToFormattedString(),
                                    date: date)
-        coreDataManger.addReminderInCoreData(newReminder)
+        
+        self.coreDataManger.addReminderInCoreData(newReminder)
+        self.navigationController?.popViewController(animated: true)
     }
 }

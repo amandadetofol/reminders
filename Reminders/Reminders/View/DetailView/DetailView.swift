@@ -67,7 +67,7 @@ class DetailView: UIView {
         return self.reminderDatePicker.date
     }
     
-    var reminderPriority: String? = ""
+    var reminderPriority: String? = "High"
     
     
     private let dataArray = ["High", "Medium", "Low"]

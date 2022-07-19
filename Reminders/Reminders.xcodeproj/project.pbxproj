@@ -14,6 +14,8 @@
 		A633D15B2881E74200866EBA /* NotificationCenterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A633D15A2881E74200866EBA /* NotificationCenterManager.swift */; };
 		A633D15E2881E9F500866EBA /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A633D15D2881E9F500866EBA /* DetailView.swift */; };
 		A633D1602885D9E600866EBA /* NewReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A633D15F2885D9E600866EBA /* NewReminderViewController.swift */; };
+		A633D1622886D7AE00866EBA /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A633D1612886D7AE00866EBA /* CoreDataManager.swift */; };
+		A633D1652886D7F700866EBA /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A633D1632886D7F600866EBA /* CoreDataModel.xcdatamodeld */; };
 		A6AD65A5287F9912004EA68A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AD65A4287F9912004EA68A /* AppDelegate.swift */; };
 		A6AD65A9287F9912004EA68A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AD65A8287F9912004EA68A /* MainViewController.swift */; };
 		A6AD65AE287F9913004EA68A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6AD65AD287F9913004EA68A /* Assets.xcassets */; };
@@ -28,6 +30,8 @@
 		A633D15A2881E74200866EBA /* NotificationCenterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenterManager.swift; sourceTree = "<group>"; };
 		A633D15D2881E9F500866EBA /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		A633D15F2885D9E600866EBA /* NewReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReminderViewController.swift; sourceTree = "<group>"; };
+		A633D1612886D7AE00866EBA /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		A633D1642886D7F700866EBA /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
 		A6AD65A1287F9912004EA68A /* Reminders.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reminders.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6AD65A4287F9912004EA68A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6AD65A8287F9912004EA68A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				A633D15A2881E74200866EBA /* NotificationCenterManager.swift */,
+				A633D1612886D7AE00866EBA /* CoreDataManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -142,6 +147,7 @@
 				A6AD65A4287F9912004EA68A /* AppDelegate.swift */,
 				A6AD65AD287F9913004EA68A /* Assets.xcassets */,
 				A6AD65B2287F9913004EA68A /* Info.plist */,
+				A633D1632886D7F600866EBA /* CoreDataModel.xcdatamodeld */,
 			);
 			path = Reminders;
 			sourceTree = "<group>";
@@ -218,12 +224,14 @@
 			files = (
 				A633D1522881D7A800866EBA /* MainViewControllerViewModel.swift in Sources */,
 				A633D15E2881E9F500866EBA /* DetailView.swift in Sources */,
+				A633D1652886D7F700866EBA /* CoreDataModel.xcdatamodeld in Sources */,
 				A633D14F2881D6B900866EBA /* Reminder.swift in Sources */,
 				A6AD65A9287F9912004EA68A /* MainViewController.swift in Sources */,
 				A633D1602885D9E600866EBA /* NewReminderViewController.swift in Sources */,
 				A633D1582881E4AC00866EBA /* DetailViewController.swift in Sources */,
 				A633D15B2881E74200866EBA /* NotificationCenterManager.swift in Sources */,
 				A6AD65A5287F9912004EA68A /* AppDelegate.swift in Sources */,
+				A633D1622886D7AE00866EBA /* CoreDataManager.swift in Sources */,
 				A633D1562881D88600866EBA /* RemindersTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -432,6 +440,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A633D1632886D7F600866EBA /* CoreDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A633D1642886D7F700866EBA /* CoreDataModel.xcdatamodel */,
+			);
+			currentVersion = A633D1642886D7F700866EBA /* CoreDataModel.xcdatamodel */;
+			path = CoreDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = A6AD6599287F9912004EA68A /* Project object */;
 }

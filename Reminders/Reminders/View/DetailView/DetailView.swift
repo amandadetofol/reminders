@@ -36,6 +36,14 @@ class DetailView: UIView {
         return datePicker
     }()
     
+    private lazy var priorityPicker: UIPickerView = {
+        let picker = UIPickerView()
+        picker.translatesAutoresizingMaskIntoConstraints = false
+        picker.dataSource = self
+        picker.delegate = self
+        return picker
+    }()
+    
     private lazy var saveChangesButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -47,6 +55,7 @@ class DetailView: UIView {
         return button
     }()
     
+    private let dataArray = ["High", "Medium", "Low"]
     var delegate: DetailViewProtocol?
     
     init(){
@@ -71,6 +80,7 @@ class DetailView: UIView {
         self.addSubview(reminderTitleTextField)
         self.addSubview(reminderDescriptionTextField)
         self.addSubview(reminderDatePicker)
+        self.addSubview(priorityPicker)
         self.addSubview(saveChangesButton)
     }
     
@@ -91,6 +101,10 @@ class DetailView: UIView {
             self.reminderDatePicker.heightAnchor.constraint(equalToConstant: 48),
             self.reminderDatePicker.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             
+            self.priorityPicker.topAnchor.constraint(equalTo: self.reminderDatePicker.bottomAnchor, constant: 16),
+
+            self.priorityPicker.heightAnchor.constraint(equalToConstant: 128),
+            self.priorityPicker.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             
             self.saveChangesButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 32),
             self.saveChangesButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -32),
@@ -109,3 +123,20 @@ extension DetailView {
     }
     
 }
+
+extension DetailView: UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return 3
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        let row = dataArray[row]
+        return row
+     }
+}
+
+extension DetailView: UIPickerViewDelegate {}

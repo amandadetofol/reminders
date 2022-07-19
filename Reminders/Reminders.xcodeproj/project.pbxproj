@@ -7,16 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A633D14F2881D6B900866EBA /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A633D14E2881D6B900866EBA /* Reminder.swift */; };
+		A633D1522881D7A800866EBA /* MainViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A633D1512881D7A800866EBA /* MainViewControllerViewModel.swift */; };
+		A633D1562881D88600866EBA /* RemindersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A633D1552881D88600866EBA /* RemindersTableViewCell.swift */; };
+		A633D1582881E4AC00866EBA /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A633D1572881E4AC00866EBA /* DetailViewController.swift */; };
+		A633D15B2881E74200866EBA /* NotificationCenterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A633D15A2881E74200866EBA /* NotificationCenterManager.swift */; };
+		A633D15E2881E9F500866EBA /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A633D15D2881E9F500866EBA /* DetailView.swift */; };
+		A633D1602885D9E600866EBA /* NewReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A633D15F2885D9E600866EBA /* NewReminderViewController.swift */; };
 		A6AD65A5287F9912004EA68A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AD65A4287F9912004EA68A /* AppDelegate.swift */; };
-		A6AD65A9287F9912004EA68A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AD65A8287F9912004EA68A /* ViewController.swift */; };
+		A6AD65A9287F9912004EA68A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AD65A8287F9912004EA68A /* MainViewController.swift */; };
 		A6AD65AE287F9913004EA68A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6AD65AD287F9913004EA68A /* Assets.xcassets */; };
 		A6AD65B1287F9913004EA68A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6AD65AF287F9913004EA68A /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A633D14E2881D6B900866EBA /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
+		A633D1512881D7A800866EBA /* MainViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerViewModel.swift; sourceTree = "<group>"; };
+		A633D1552881D88600866EBA /* RemindersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersTableViewCell.swift; sourceTree = "<group>"; };
+		A633D1572881E4AC00866EBA /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		A633D15A2881E74200866EBA /* NotificationCenterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenterManager.swift; sourceTree = "<group>"; };
+		A633D15D2881E9F500866EBA /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		A633D15F2885D9E600866EBA /* NewReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReminderViewController.swift; sourceTree = "<group>"; };
 		A6AD65A1287F9912004EA68A /* Reminders.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reminders.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6AD65A4287F9912004EA68A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A6AD65A8287F9912004EA68A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A6AD65A8287F9912004EA68A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		A6AD65AD287F9913004EA68A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A6AD65B0287F9913004EA68A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A6AD65B2287F9913004EA68A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -33,6 +47,74 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A633D14B2881D36700866EBA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A6AD65A8287F9912004EA68A /* MainViewController.swift */,
+				A633D1572881E4AC00866EBA /* DetailViewController.swift */,
+				A633D15F2885D9E600866EBA /* NewReminderViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A633D14C2881D37200866EBA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A633D15C2881E9E700866EBA /* DetailView */,
+				A633D1542881D86800866EBA /* RemindersTableViewCell */,
+				A633D1532881D85B00866EBA /* LaunchScreen */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A633D14D2881D6AF00866EBA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A633D14E2881D6B900866EBA /* Reminder.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A633D1502881D79800866EBA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A633D1512881D7A800866EBA /* MainViewControllerViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A633D1532881D85B00866EBA /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				A6AD65AF287F9913004EA68A /* LaunchScreen.storyboard */,
+			);
+			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		A633D1542881D86800866EBA /* RemindersTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				A633D1552881D88600866EBA /* RemindersTableViewCell.swift */,
+			);
+			path = RemindersTableViewCell;
+			sourceTree = "<group>";
+		};
+		A633D1592881E73400866EBA /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				A633D15A2881E74200866EBA /* NotificationCenterManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		A633D15C2881E9E700866EBA /* DetailView */ = {
+			isa = PBXGroup;
+			children = (
+				A633D15D2881E9F500866EBA /* DetailView.swift */,
+			);
+			path = DetailView;
+			sourceTree = "<group>";
+		};
 		A6AD6598287F9912004EA68A = {
 			isa = PBXGroup;
 			children = (
@@ -52,10 +134,13 @@
 		A6AD65A3287F9912004EA68A /* Reminders */ = {
 			isa = PBXGroup;
 			children = (
+				A633D1592881E73400866EBA /* Manager */,
+				A633D1502881D79800866EBA /* ViewModel */,
+				A633D14D2881D6AF00866EBA /* Model */,
+				A633D14C2881D37200866EBA /* View */,
+				A633D14B2881D36700866EBA /* Controller */,
 				A6AD65A4287F9912004EA68A /* AppDelegate.swift */,
-				A6AD65A8287F9912004EA68A /* ViewController.swift */,
 				A6AD65AD287F9913004EA68A /* Assets.xcassets */,
-				A6AD65AF287F9913004EA68A /* LaunchScreen.storyboard */,
 				A6AD65B2287F9913004EA68A /* Info.plist */,
 			);
 			path = Reminders;
@@ -131,8 +216,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A6AD65A9287F9912004EA68A /* ViewController.swift in Sources */,
+				A633D1522881D7A800866EBA /* MainViewControllerViewModel.swift in Sources */,
+				A633D15E2881E9F500866EBA /* DetailView.swift in Sources */,
+				A633D14F2881D6B900866EBA /* Reminder.swift in Sources */,
+				A6AD65A9287F9912004EA68A /* MainViewController.swift in Sources */,
+				A633D1602885D9E600866EBA /* NewReminderViewController.swift in Sources */,
+				A633D1582881E4AC00866EBA /* DetailViewController.swift in Sources */,
+				A633D15B2881E74200866EBA /* NotificationCenterManager.swift in Sources */,
 				A6AD65A5287F9912004EA68A /* AppDelegate.swift in Sources */,
+				A633D1562881D88600866EBA /* RemindersTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

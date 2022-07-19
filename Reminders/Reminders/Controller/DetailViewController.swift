@@ -11,6 +11,7 @@ class DetailViewController: UIViewController {
     
     private var viewToView: DetailView = DetailView()
     private let coreDataManger = CoreDataManager()
+    private let notificationManager = NotificationCenterManager()
     private var currentReminder: Reminder? = nil
     
     override func viewDidLoad() {
@@ -75,7 +76,7 @@ extension DetailViewController: DetailViewProtocol {
                                 dateToShow: date.parseToFormattedString(),
                                 date: date)
         
-        
+        self.notificationManager.sendNotification(title: title, description: description, date: date)
         coreDataManger.updateReminderInCoreData(reminder: currentReminder,
                                                 newReminder: reminder)
         self.navigationController?.popViewController(animated: true)
